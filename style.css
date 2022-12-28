@@ -1,0 +1,651 @@
+body {
+    --bg-color: hsla(220, 50%, 50%, 0.3);
+    --border-color: hsla(220, 50%, 50%, 0.8);
+    --header-text-color: hsla(0, 0%, 9.0196%, 1);
+    --reg-text-color: hsla(0, 0%, 9.0196%, 1);
+    --check-bg-color: hsla(40, 100%, 80%, 1);
+    --check-bg-color-hover: hsla(40, 100%, 70%, 1);
+    --delete-bg-color: hsla(40, 100%, 80%, 1);
+    --delete-bg-color-hover: hsla(0, 50%, 50%, 1);
+    --input-btn: hsla(40, 100%, 80%, 1);
+    --input-btn-hover: hsla(40, 100%, 80%, 1);
+    --input-bg-color: hsla(290, 50%, 95%, 1);
+    --border-image: linear-gradient(var(--angle), hsla(220, 50%, 50%, 0.8))1;
+    --err-box-bg: hsla(220, 50%, 50%, 0.8);
+    --err-box-border: hsla(220, 50%, 30%, 0.9);
+    --rgb-btn-bg: hsla(220, 50%, 80%, 1);
+    --theme-btn-bg: hsla(220, 50%, 90%, 1);
+}
+
+
+.dark {
+    --bg-color: hsla(240, 100%, 3%, 1);
+    --border-color: hsla(240, 100%, 30%, 1);
+    --header-text-color: hsla(240, 100%, 100%, 0.6);
+    --reg-text-color: hsla(0, 30%, 5%, 1);
+    --reg-text-hover: hsla(0, 0%, 50%, 1);
+    --check-bg-color: hsla(40, 100%, 20%, 1);
+    --check-bg-color-hover: hsla(40, 100%, 10%, 1);
+    --delete-bg-color: hsla(240, 100%, 3%, 1);
+    --delete-bg-color-hover: hsla(0, 100%, 10%, 1);
+    --input-bg-color: hsla(290, 50%, 95%, 0.7);
+    --border-image: linear-gradient(var(--angle), hsla(240, 100%, 30%, 1))1;
+    --err-box-bg: hsla(240, 100%, 8%, 1);
+    --err-box-border: hsla(240, 100%, 30%, 0.2);
+    --rgb-btn-bg: hsla(220, 50%, 20%, 0.8);
+    --theme-btn-bg: hsla(220, 50%, 50%, 1);
+
+
+}
+
+.rgb {
+    --border-color: hsla(240, 100%, 8%, 0.1);
+    --border-image: linear-gradient(var(--angle), red, green, blue)1;
+}
+
+
+
+
+/* Extra small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+    * {
+        --angle: 0deg;
+        margin: 0;
+        padding: 0;
+        letter-spacing: 0.5px;
+        box-sizing: border-box;
+        transition: all ease-in-out .2s;
+    }
+
+    body {
+        animation: 10s rotate linear infinite;
+        background: var(--bg-color);
+        position: relative;
+        width: 70vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-self: center;
+        margin: auto;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        transition: all ease-in-out .2s;
+
+    }
+
+
+
+    .btn-cont {
+        display: flex;
+        margin: 1rem 1rem;
+        transition: all ease-in-out .2s;
+    }
+
+    .btn-cont>button {
+        padding: 4px 8px;
+
+    }
+
+
+    @keyframes rotate {
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    @property --angle {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+    .theme-toggler {
+        background: var(--theme-btn-bg);
+        margin-left: 1rem;
+        transition: all ease-in-out .2s;
+    }
+
+    .reset-colors {
+        display: none;
+        margin-left: 8px;
+    }
+
+    .random-color-btn {
+        margin-left: auto;
+    }
+
+    .undoBtn {
+        padding: 4px 8px;
+        margin-left: 8px;
+
+    }
+
+
+
+    .rgb-toggler {
+        background: var(--rgb-btn-bg);
+        margin-left: 8px;
+        transition: all ease-in-out .2s;
+
+    }
+
+    .rgb-toggler:hover {
+        background: var(--rgb-btn-bg);
+        background: linear-gradient(var(--angle), red, green, blue);
+        transition: all ease-in-out .2s;
+
+
+    }
+
+    .add-task {
+        margin-left: 100vw;
+    }
+
+    .container {
+        height: 100%;
+        overflow: scroll;
+        transition: all ease-in-out .2s;
+    }
+
+    .heading-h2 {
+        display: flex;
+        font-size: 1.3rem;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .task.task-margin {
+        margin-bottom: 2rem;
+    }
+
+    .task {
+
+        margin-bottom: 1rem;
+        display: flex;
+    }
+
+    .add-task-container {
+        transition: all ease-in-out .2s;
+        margin: 0 1rem;
+    }
+
+    .deleteTask:hover {
+        background: var(--delete-bg-color-hover);
+    }
+
+    button:last-child:not(.undoBtn) {
+        letter-spacing: 0.5px;
+        transition: all ease-in-out .2s;
+        margin-left: 0.5rem;
+    }
+
+    .err-message {
+        display: none;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 1rem;
+        background-color: var(--err-box-bg);
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        border: 3px solid var(--err-box-border);
+        border-image: var(--border-image);
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        transition: all ease-in-out .2s;
+
+    }
+
+
+
+    h1 {
+        padding: 20px;
+        color: var(--header-text-color);
+        text-align: center;
+        font-size: 1.6rem;
+        text-decoration-line: underline;
+        text-decoration-color: hsla(330, 100%, 50%, 1.0);
+
+    }
+
+    .movie-wrapper,
+    form,
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out .2s;
+
+    }
+
+
+    .li-and-remove-btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        letter-spacing: 0.5px;
+        margin: 1rem 1rem;
+        transition: all ease-in-out .2s;
+
+    }
+
+    .movie-wrapper {
+
+        background: hsla(220, 50%, 50%, 0.4);
+        padding: 20px 5px;
+        border-bottom: 1px solid hsla(220, 50%, 50%, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        transition: all ease-in-out .2s;
+        justify-content: space-between;
+    }
+
+    button {
+        background: var(--check-bg-color);
+        font-size: 0.8rem;
+        transition: all ease-in-out .2s;
+        position: relative;
+        color: var(--reg-text-color);
+        padding: 7px 11px;
+        border: 3px solid var(--border-color);
+        border-image: var(--border-image);
+        letter-spacing: 0.5px;
+        border-radius: 10px;
+        border-radius: 10px !important;
+        animation: 10s rotate linear infinite;
+
+    }
+
+    button:hover {
+        background: var(--check-bg-color-hover);
+        color: var(--reg-text-hover);
+        transition: all ease-in-out .2s;
+
+
+    }
+
+    form button:hover {
+        background: hsla(60, 100%, 99%, 1);
+
+    }
+
+    form button:active {
+        background: hsla(220, 100%, 20%, 1);
+
+    }
+
+    li {
+        border: 3px solid var(--border-color);
+        text-decoration-style: none;
+        list-style-type: none;
+        padding: 7px 11px;
+        transition: all ease-in-out .2s;
+        animation: 10s rotate linear infinite;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        background: var(--input-bg-color);
+        border-image: var(--border-image);
+        letter-spacing: 0.5px;
+        margin-right: auto;
+
+    }
+
+    form {
+        background: hsla(220, 50%, 50%, 0.7);
+        padding: 30px 0;
+        border-bottom: 1px solid blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out .2s;
+
+    }
+
+    img {
+        font-size: 1.4rem;
+        border: 3px solid hsla(220, 50%, 50%, 1);
+    }
+
+
+    input {
+        background: var(--input-bg-color);
+        transition: all ease-in-out .2s;
+        font-size: 0.8rem;
+        padding: 15px 10px;
+        width: 100%;
+        border: 3px solid var(--border-color);
+        border-image: var(--border-image);
+        border-radius: 10px;
+        overflow: hidden;
+        animation: 10s rotate linear infinite;
+    }
+
+    input:focus-within {
+        color: hsla(220, 80%, 20%, 1);
+        letter-spacing: 0.5px;
+    }
+
+    input:focus-visible {
+        outline: 3px solid white;
+        border-radius: 12px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+
+    * {
+        --angle: 0deg;
+        margin: 0;
+        letter-spacing: 0.5px;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all ease-in-out .2s;
+    }
+
+    body {
+        background: var(--bg-color);
+
+        animation: 10s rotate linear infinite;
+        position: relative;
+        width: 80vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-self: center;
+        margin: auto;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        transition: all ease-in-out .2s;
+
+    }
+
+    input:focus-visible {
+        outline: 3px solid white;
+        border-radius: 12px;
+    }
+
+    .btn-cont {
+        display: flex;
+        margin: 1rem 1rem;
+        transition: all ease-in-out .2s;
+    }
+
+    .btn-cont>button {
+        transition: all ease-in-out .2s;
+        padding: 4px 8px;
+    }
+
+
+    @keyframes rotate {
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    @property --angle {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    .theme-toggler {
+        background: var(--theme-btn-bg);
+        margin-left: 8px;
+        transition: all ease-in-out .2s;
+    }
+
+    .reset-colors {
+        display: none;
+        margin-left: 8px;
+    }
+
+    .random-color-btn {
+        margin-left: auto;
+    }
+
+    .undoBtn {
+        padding: 4px 8px;
+        margin-left: 1rem;
+        transition: all ease-in-out .2s;
+
+    }
+
+    .rgb-toggler {
+        background: var(--rgb-btn-bg);
+        margin-left: 1rem;
+        transition: all ease-in-out .2s;
+
+    }
+
+    .rgb-toggler:hover {
+        background: var(--rgb-btn-bg);
+        background: linear-gradient(var(--angle), red, green, blue);
+        transition: all ease-in-out .2s;
+
+    }
+
+    .add-task {
+        margin-left: 100vw;
+    }
+
+    .container {
+        height: 100%;
+        overflow: scroll;
+        transition: all ease-in-out .2s;
+    }
+
+    .heading-h2 {
+        display: flex;
+        font-size: 1.3rem;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .task.task-margin {
+        margin-bottom: 2rem;
+    }
+
+    .task {
+
+        margin-bottom: 1rem;
+        display: flex;
+    }
+
+    .add-task-container {
+        margin: 0 1rem;
+        transition: all ease-in-out .2s;
+    }
+
+    .deleteTask:hover {
+        background: var(--delete-bg-color-hover);
+    }
+
+    button:last-child:not(.undoBtn) {
+        margin-left: 0.5rem;
+    }
+
+    .err-message {
+        display: none;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 6rem;
+        background-color: var(--err-box-bg);
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        border: 3px solid var(--err-box-border);
+        border-image: var(--border-image);
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        transition: all ease-in-out .2s;
+
+    }
+
+
+
+    h1 {
+        padding: 20px;
+        color: var(--header-text-color);
+        text-align: center;
+        font-size: 1.6rem;
+        text-decoration-line: underline;
+        text-decoration-color: hsla(330, 100%, 50%, 1.0);
+
+    }
+
+    .movie-wrapper,
+    form,
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out .2s;
+
+    }
+
+
+    .li-and-remove-btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin: 1rem 1rem;
+        transition: all ease-in-out .2s;
+
+    }
+
+    .movie-wrapper {
+
+        background: hsla(220, 50%, 50%, 0.4);
+        padding: 20px 5px;
+        border-bottom: 1px solid hsla(220, 50%, 50%, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        transition: all ease-in-out .2s;
+        justify-content: space-between;
+    }
+
+    button {
+        background: var(--check-bg-color);
+        font-size: 0.8rem;
+        transition: all ease-in-out .2s;
+        position: relative;
+        color: var(--reg-text-color);
+        padding: 7px 11px;
+        border: 3px solid var(--border-color);
+        border-image: var(--border-image);
+        border-radius: 10px;
+        border-radius: 10px !important;
+        overflow: hidden;
+        animation: 10s rotate linear infinite;
+
+    }
+
+    button:hover {
+        background: var(--check-bg-color-hover);
+        color: var(--reg-text-hover);
+        transition: all ease-in-out .2s;
+
+
+    }
+
+    form button:hover {
+        background: hsla(60, 100%, 99%, 1);
+
+    }
+
+    form button:active {
+        background: hsla(220, 100%, 20%, 1);
+
+    }
+
+    li {
+        border: 3px solid var(--border-color);
+        text-decoration-style: none;
+        list-style-type: none;
+        padding: 7px 11px;
+        transition: all ease-in-out .2s;
+        animation: 10s rotate linear infinite;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        background: var(--input-bg-color);
+        letter-spacing: 0.5px;
+        border-image: var(--border-image);
+        margin-right: auto;
+
+    }
+
+    form {
+        background: hsla(220, 50%, 50%, 0.7);
+        padding: 30px 0;
+        border-bottom: 1px solid blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out .2s;
+
+    }
+
+    img {
+        font-size: 1.4rem;
+        border: 3px solid hsla(220, 50%, 50%, 1);
+    }
+
+    input:focus-within {
+        color: hsla(220, 80%, 20%, 1);
+        letter-spacing: 0.5px;
+    }
+
+
+    input {
+        background: var(--input-bg-color);
+        transition: all ease-in-out .2s;
+        font-size: 0.8rem;
+        padding: 15px 10px;
+        width: 100%;
+        border: 3px solid var(--border-color);
+        border-image: var(--border-image);
+        border-radius: 10px;
+        animation: 10s rotate linear infinite;
+    }
+
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        background: var(--bg-color);
+        letter-spacing: 0.5px;
+        width: 60vw;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+        background: var(--bg-color);
+        letter-spacing: 0.5px;
+        width: 50vw;
+    }
+}
