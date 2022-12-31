@@ -61,7 +61,7 @@ body {
         animation: 10s rotate linear infinite;
         background: var(--bg-color);
         position: relative;
-        width: 70vw;
+        width: 100vw;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -78,11 +78,14 @@ body {
     .btn-cont {
         display: flex;
         margin: 1rem 1rem;
+        flex-wrap: wrap;
         transition: all ease-in-out .2s;
     }
 
     .btn-cont>button {
-        padding: 4px 8px;
+        /*padding: 4px 8px;*/
+        padding: 3px 5px;
+        margin: 0.2rem 0.1rem;
 
     }
 
@@ -118,7 +121,6 @@ body {
     .undoBtn {
         padding: 4px 8px;
         margin-left: 8px;
-
     }
 
 
@@ -177,11 +179,7 @@ body {
         background: var(--delete-bg-color-hover);
     }
 
-    button:last-child:not(.undoBtn) {
-        letter-spacing: 0.5px;
-        transition: all ease-in-out .2s;
-        margin-left: 0.5rem;
-    }
+
 
     .err-message {
         display: none;
@@ -250,6 +248,12 @@ body {
         justify-content: space-between;
     }
 
+    button:last-child:not(.undoBtn) {
+        letter-spacing: 0.5px;
+        transition: all ease-in-out .2s;
+        margin-left: 0.1rem;
+    }
+
     button {
         background: var(--check-bg-color);
         font-size: 0.8rem;
@@ -273,6 +277,8 @@ body {
 
 
     }
+
+
 
     form button:hover {
         background: hsla(60, 100%, 99%, 1);
